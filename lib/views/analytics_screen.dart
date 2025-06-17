@@ -57,7 +57,14 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
       appBar: AppBar(
         title: const Text('Analytics'),
       ),
-      body: Padding(
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.blueGrey, Colors.teal],
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+          ),
+        ),
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -100,8 +107,12 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                 itemBuilder: (context, index) {
                   final key = sortedKeys[index];
                   final value = counts[key];
-                  return ListTile(
-                    title: Text('$key: $value cigarettes'),
+                  return Card(
+                    color: Colors.white70,
+                    margin: const EdgeInsets.symmetric(vertical: 4),
+                    child: ListTile(
+                      title: Text('$key: $value cigarettes'),
+                    ),
                   );
                 },
               ),
@@ -116,8 +127,12 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                       barRods: [
                         BarChartRodData(
                           toY: entry.value.toDouble(),
-                          color: Colors.blueAccent,
                           width: 15,
+                          gradient: const LinearGradient(
+                            colors: [Colors.teal, Colors.blueAccent],
+                            begin: Alignment.bottomCenter,
+                            end: Alignment.topCenter,
+                          ),
                         ),
                       ],
                     );
