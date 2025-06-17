@@ -26,24 +26,38 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: const Text('Cigarette Tracker'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'Press the button to log a cigarette:',
-            ),
-            ElevatedButton(
-              onPressed: _logCigarette,
-              child: const Text('Log Cigarette'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/analytics');
-              },
-              child: const Text('View Analytics'),
-            ),
-          ],
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.teal, Colors.blueGrey],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              const Text(
+                'Press the button to log a cigarette:',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.white),
+              ),
+              const SizedBox(height: 12),
+              ElevatedButton.icon(
+                onPressed: _logCigarette,
+                icon: const Icon(Icons.add),
+                label: const Text('Log Cigarette'),
+              ),
+              const SizedBox(height: 12),
+              ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/analytics');
+                },
+                icon: const Icon(Icons.bar_chart),
+                label: const Text('View Analytics'),
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -14,7 +14,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Cigarette Tracker',
       theme: ThemeData(
-        primarySwatch: Colors.blueGrey,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
+        useMaterial3: true,
       ),
       initialRoute: '/',
       routes: {
